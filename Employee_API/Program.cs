@@ -12,6 +12,13 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 var employees = new List<Employee>();
 
+app.UseCors(policy =>
+{
+    policy.AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader();
+});
+
 app.MapGet("/employees", () => employees);
 app.MapGet("/employees{id}", (int id) => employees.FirstOrDefault(h => h.Id == id));
 app.MapPost("/employees", (Employee employee) => employees.Add(employee));
