@@ -9,6 +9,7 @@ builder.Services.AddCors();
 
 var app = builder.Build();
 
+app.UseMiddleware<HeaderMiddleware>();
 app.UseMiddleware<GetMiddleware>();
 app.UseMiddleware<PostMiddleware>();
 
