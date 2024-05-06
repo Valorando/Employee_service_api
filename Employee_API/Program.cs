@@ -10,6 +10,7 @@ builder.Services.AddCors();
 var app = builder.Build();
 
 app.UseMiddleware<GetMiddleware>();
+app.UseMiddleware<PostMiddleware>();
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
