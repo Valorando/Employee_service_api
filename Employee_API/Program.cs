@@ -1,3 +1,5 @@
+using Employee_API.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 var app = builder.Build();
+
+app.UseMiddleware<GetMiddleware>();
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
